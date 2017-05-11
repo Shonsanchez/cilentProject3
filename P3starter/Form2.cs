@@ -1,13 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using RESTutil;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace P3starter
@@ -45,6 +38,7 @@ namespace P3starter
             createPPl();
         }
 
+        //Creates the content for the people tab
         public void createPPl()
         {
             string jsonPeople = istRest.getRESTData("/people/");
@@ -60,7 +54,7 @@ namespace P3starter
             Label subTitle = new Label();
             subTitle.Text = people.subTitle;
             subTitle.Location = new Point(10, 40);
-            subTitle.Size = new Size(100,20);
+            subTitle.Size = new Size(500,20);
             pplTab.Controls.Add(subTitle);
 
             // Print out all the faculty names
@@ -85,9 +79,13 @@ namespace P3starter
             }
         }
 
+        // Creates the content for the Undergrad section of the programs tab
         public void createProgramsTab()
         {
+            string jsonDegrees = istRest.getRESTData("/degrees/undergraduate");
 
+            // Cast the objects
+            Degrees degrees = JToken.Parse(jsonDegrees).ToObject<Degrees>();
         }
     }
 }
