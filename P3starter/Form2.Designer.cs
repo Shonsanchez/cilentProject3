@@ -147,20 +147,23 @@
             this.programTab.Location = new System.Drawing.Point(4, 22);
             this.programTab.Name = "programTab";
             this.programTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.programTab.Size = new System.Drawing.Size(760, 459);
+            this.programTab.Size = new System.Drawing.Size(989, 556);
             this.programTab.TabIndex = 1;
             this.programTab.Text = "Programs";
             this.programTab.UseVisualStyleBackColor = true;
             // 
             // programsTC
             // 
+            this.programsTC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.programsTC.Controls.Add(this.ugTab);
             this.programsTC.Controls.Add(this.gradTab);
             this.programsTC.Controls.Add(this.minorsTab);
             this.programsTC.Location = new System.Drawing.Point(3, 6);
             this.programsTC.Name = "programsTC";
             this.programsTC.SelectedIndex = 0;
-            this.programsTC.Size = new System.Drawing.Size(688, 409);
+            this.programsTC.Size = new System.Drawing.Size(980, 530);
             this.programsTC.TabIndex = 3;
             // 
             // ugTab
@@ -169,7 +172,7 @@
             this.ugTab.Location = new System.Drawing.Point(4, 22);
             this.ugTab.Name = "ugTab";
             this.ugTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.ugTab.Size = new System.Drawing.Size(680, 383);
+            this.ugTab.Size = new System.Drawing.Size(972, 504);
             this.ugTab.TabIndex = 0;
             this.ugTab.Text = "Undergraduate Programs";
             this.ugTab.UseVisualStyleBackColor = true;
@@ -177,7 +180,7 @@
             // ugTitle
             // 
             this.ugTitle.AutoSize = true;
-            this.ugTitle.Location = new System.Drawing.Point(48, 22);
+            this.ugTitle.Location = new System.Drawing.Point(300, 30);
             this.ugTitle.Name = "ugTitle";
             this.ugTitle.Size = new System.Drawing.Size(147, 13);
             this.ugTitle.TabIndex = 2;
@@ -189,7 +192,7 @@
             this.gradTab.Location = new System.Drawing.Point(4, 22);
             this.gradTab.Name = "gradTab";
             this.gradTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.gradTab.Size = new System.Drawing.Size(680, 383);
+            this.gradTab.Size = new System.Drawing.Size(760, 421);
             this.gradTab.TabIndex = 1;
             this.gradTab.Text = "Graduate Programs";
             this.gradTab.UseVisualStyleBackColor = true;
@@ -197,7 +200,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 14);
+            this.label1.Location = new System.Drawing.Point(300, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 13);
             this.label1.TabIndex = 0;
@@ -209,7 +212,7 @@
             this.minorsTab.Location = new System.Drawing.Point(4, 22);
             this.minorsTab.Name = "minorsTab";
             this.minorsTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.minorsTab.Size = new System.Drawing.Size(680, 383);
+            this.minorsTab.Size = new System.Drawing.Size(760, 421);
             this.minorsTab.TabIndex = 2;
             this.minorsTab.Text = "Minors";
             this.minorsTab.UseVisualStyleBackColor = true;
@@ -217,7 +220,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 14);
+            this.label2.Location = new System.Drawing.Point(300, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 0;
@@ -229,7 +232,7 @@
             this.employTab.Location = new System.Drawing.Point(4, 22);
             this.employTab.Name = "employTab";
             this.employTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.employTab.Size = new System.Drawing.Size(760, 459);
+            this.employTab.Size = new System.Drawing.Size(989, 556);
             this.employTab.TabIndex = 2;
             this.employTab.Text = "Employment";
             this.employTab.UseVisualStyleBackColor = true;

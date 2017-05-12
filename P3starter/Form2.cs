@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using RESTutil;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,9 +9,11 @@ namespace P3starter
     public partial class Form2 : Form
     {
         REST istRest = null;
+        Elements e;
         public Form2()
         {
             InitializeComponent();
+            e = new Elements();
             istRest = new REST("http://ist.rit.edu/api");
             Populate();
         }
@@ -36,6 +39,8 @@ namespace P3starter
             quoterlbl.Text = about.quoteAuthor;
 
             createPPl();
+            createUgTab();
+            createGradTab();
         }
 
         //Creates the content for the people tab
@@ -46,27 +51,15 @@ namespace P3starter
             // Cast the objects
             People people = JToken.Parse(jsonPeople).ToObject<People>();
 
-            Label title = new Label();
-            title.Text = people.title;
-            title.Location = new Point(10,10);
-            pplTab.Controls.Add(title);
-
-            Label subTitle = new Label();
-            subTitle.Text = people.subTitle;
-            subTitle.Location = new Point(10, 40);
-            subTitle.Size = new Size(500,20);
-            pplTab.Controls.Add(subTitle);
+            pplTab.Controls.Add(e.createLabel(people.title,10,10));
+            pplTab.Controls.Add(e.createLabel(people.subTitle,10,40,500,20));
 
             // Print out all the faculty names
             int x = 20;
             int y = 90;
             foreach (Faculty thisFac in people.faculty)
             {
-                Button button = new Button();
-                button.Text = thisFac.name;
-                button.Location = new Point(x,y);
-               
-                pplTab.Controls.Add(button);
+                pplTab.Controls.Add(e.createButton(thisFac.name,x,y));
                 if (x >= 650)
                 {
                     x = 20;
@@ -80,12 +73,75 @@ namespace P3starter
         }
 
         // Creates the content for the Undergrad section of the programs tab
-        public void createProgramsTab()
+        public void createUgTab()
         {
-            string jsonDegrees = istRest.getRESTData("/degrees/undergraduate");
+            string jsonDegrees = istRest.getRESTData("/degrees/undergraduate/");
 
             // Cast the objects
-            Degrees degrees = JToken.Parse(jsonDegrees).ToObject<Degrees>();
+            ugDegrees degrees = JToken.Parse(jsonDegrees).ToObject<ugDegrees>();
+            int x = 50;
+            int y = 70;
+            foreach(Degree degree in degrees.undergraduate)
+            {
+                String title = degree.degreeName + " (" + degree.title + ")";
+                ugTab.Controls.Add(e.createLabel(title, x, y,250,20));
+                y += 20;
+                ugTab.Controls.Add(e.createTextBox(degree.description, x,y,200,75 ));
+                y += 100;
+                ugTab.Controls.Add(e.createLabel("Concentrations",x,y));
+                foreach(String con in degree.concentrations)
+                {
+                    y += 22;
+                    ugTab.Controls.Add(e.createLabel("     \u2022" + con,x,y));
+                }
+                y = 70;
+                x += 300;
+            }
         }
+
+        // Creates the content for the Undergrad section of the programs tab
+        public void createGradTab()
+        {
+            string jsonDegrees = istRest.getRESTData("/degrees/graduate/");
+
+            // Cast the objects
+            gradDegrees degrees = JToken.Parse(jsonDegrees).ToObject<gradDegrees>();
+            int x = 50;
+            int y = 70;
+            foreach (Degree degree in degrees.graduate)
+            {
+
+                if(degree.concentrations != null)
+                {
+                    String title = degree.degreeName + " (" + degree.title + ")";
+                    gradTab.Controls.Add(e.createLabel(title, x, y, 230, 20));
+                    y += 20;
+                    gradTab.Controls.Add(e.createTextBox(degree.description, x, y, 200, 75));
+                    y += 100;
+                    gradTab.Controls.Add(e.createLabel("Concentrations", x, y));
+                    foreach (String con in degree.concentrations)
+                    {
+                        y += 22;
+                        gradTab.Controls.Add(e.createLabel("     \u2022" + con, x, y));
+                    }
+                }
+                else
+                {
+                    String title = degree.degreeName;
+                    gradTab.Controls.Add(e.createLabel(title, x, y, 230, 20));
+                    y += 20;
+                    foreach (String con in degree.availableCertificates)
+                    {
+                        y += 22;
+                        gradTab.Controls.Add(e.createLabel("\u2022" + con, x, y, 250,20));
+                        Console.Write(con + "\n");
+                    } 
+                }
+                y = 70;
+                x += 250;
+
+            }
+        }
+
     }
 }

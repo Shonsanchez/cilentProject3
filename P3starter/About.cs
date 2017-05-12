@@ -13,4 +13,5 @@ namespace P3starter
         public string quote { get; set; }
         public string quoteAuthor { get; set; }
     }
+
 }
