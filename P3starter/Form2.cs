@@ -41,6 +41,7 @@ namespace P3starter
             createPPl();
             createUgTab();
             createGradTab();
+            createMinors();
         }
 
         //Creates the content for the people tab
@@ -143,5 +144,36 @@ namespace P3starter
             }
         }
 
+        public void createMinors()
+        {
+            string jsonMinors = istRest.getRESTData("/minors/UgMinors/");
+
+            // Cast the objects
+            Minors minors = JToken.Parse(jsonMinors).ToObject<Minors>();
+            int x = 50;
+            int y = 70;
+            int y2 = 70;
+            foreach (Minor minor in minors.UgMinors)
+            {
+                String title = minor.title;
+                minorsTab.Controls.Add(e.createLabel(title, x, y, 230, 20));
+                y += 20;
+                minorsTab.Controls.Add(e.createTextBox(minor.description, x, y, 200, 75));
+                y += 100;
+                minorsTab.Controls.Add(e.createLabel("Courses", x, y));
+                foreach (String con in minor.courses)
+                {
+                    y += 22;
+                    minorsTab.Controls.Add(e.createLabel("     \u2022" + con, x, y));
+                }
+                x+=250;
+                if(x > 800)
+                {
+                    y2 += 350;
+                    x = 50;
+                }
+                y = y2;
+            }
+        }
     }
 }

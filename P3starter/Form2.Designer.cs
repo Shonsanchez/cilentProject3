@@ -53,6 +53,8 @@
             this.resourceTitle = new System.Windows.Forms.Label();
             this.newsTab = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contactTab = new System.Windows.Forms.TabPage();
+            this.contactBrowser = new System.Windows.Forms.WebBrowser();
             this.tabControl.SuspendLayout();
             this.aboutTab.SuspendLayout();
             this.programTab.SuspendLayout();
@@ -63,6 +65,7 @@
             this.employTab.SuspendLayout();
             this.studLocTab.SuspendLayout();
             this.resourceTab.SuspendLayout();
+            this.contactTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -78,10 +81,11 @@
             this.tabControl.Controls.Add(this.researchTab);
             this.tabControl.Controls.Add(this.resourceTab);
             this.tabControl.Controls.Add(this.newsTab);
+            this.tabControl.Controls.Add(this.contactTab);
             this.tabControl.Location = new System.Drawing.Point(-3, 3);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(997, 582);
+            this.tabControl.Size = new System.Drawing.Size(1097, 682);
             this.tabControl.TabIndex = 0;
             // 
             // aboutTab
@@ -92,8 +96,8 @@
             this.aboutTab.Controls.Add(this.aboutTitle);
             this.aboutTab.Location = new System.Drawing.Point(4, 22);
             this.aboutTab.Name = "aboutTab";
-            this.aboutTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.aboutTab.Size = new System.Drawing.Size(989, 556);
+            this.aboutTab.Padding = new System.Windows.Forms.Padding(3);
+            this.aboutTab.Size = new System.Drawing.Size(1089, 656);
             this.aboutTab.TabIndex = 0;
             this.aboutTab.Text = "About";
             this.aboutTab.UseVisualStyleBackColor = true;
@@ -102,7 +106,7 @@
             // 
             this.quoterlbl.AutoSize = true;
             this.quoterlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quoterlbl.Location = new System.Drawing.Point(273, 275);
+            this.quoterlbl.Location = new System.Drawing.Point(464, 332);
             this.quoterlbl.Name = "quoterlbl";
             this.quoterlbl.Size = new System.Drawing.Size(93, 13);
             this.quoterlbl.TabIndex = 8;
@@ -112,7 +116,7 @@
             // 
             this.quotetb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.quotetb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quotetb.Location = new System.Drawing.Point(69, 168);
+            this.quotetb.Location = new System.Drawing.Point(260, 225);
             this.quotetb.Multiline = true;
             this.quotetb.Name = "quotetb";
             this.quotetb.ReadOnly = true;
@@ -124,7 +128,7 @@
             // 
             this.aboutText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.aboutText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutText.Location = new System.Drawing.Point(46, 74);
+            this.aboutText.Location = new System.Drawing.Point(237, 131);
             this.aboutText.Multiline = true;
             this.aboutText.Name = "aboutText";
             this.aboutText.ReadOnly = true;
@@ -135,7 +139,7 @@
             // 
             this.aboutTitle.AutoSize = true;
             this.aboutTitle.Font = new System.Drawing.Font("Sitka Banner", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutTitle.Location = new System.Drawing.Point(38, 24);
+            this.aboutTitle.Location = new System.Drawing.Point(300, 56);
             this.aboutTitle.Name = "aboutTitle";
             this.aboutTitle.Size = new System.Drawing.Size(63, 39);
             this.aboutTitle.TabIndex = 1;
@@ -146,8 +150,8 @@
             this.programTab.Controls.Add(this.programsTC);
             this.programTab.Location = new System.Drawing.Point(4, 22);
             this.programTab.Name = "programTab";
-            this.programTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.programTab.Size = new System.Drawing.Size(989, 556);
+            this.programTab.Padding = new System.Windows.Forms.Padding(3);
+            this.programTab.Size = new System.Drawing.Size(1089, 656);
             this.programTab.TabIndex = 1;
             this.programTab.Text = "Programs";
             this.programTab.UseVisualStyleBackColor = true;
@@ -163,7 +167,7 @@
             this.programsTC.Location = new System.Drawing.Point(3, 6);
             this.programsTC.Name = "programsTC";
             this.programsTC.SelectedIndex = 0;
-            this.programsTC.Size = new System.Drawing.Size(980, 530);
+            this.programsTC.Size = new System.Drawing.Size(1080, 630);
             this.programsTC.TabIndex = 3;
             // 
             // ugTab
@@ -171,8 +175,8 @@
             this.ugTab.Controls.Add(this.ugTitle);
             this.ugTab.Location = new System.Drawing.Point(4, 22);
             this.ugTab.Name = "ugTab";
-            this.ugTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.ugTab.Size = new System.Drawing.Size(972, 504);
+            this.ugTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ugTab.Size = new System.Drawing.Size(1072, 604);
             this.ugTab.TabIndex = 0;
             this.ugTab.Text = "Undergraduate Programs";
             this.ugTab.UseVisualStyleBackColor = true;
@@ -191,8 +195,8 @@
             this.gradTab.Controls.Add(this.label1);
             this.gradTab.Location = new System.Drawing.Point(4, 22);
             this.gradTab.Name = "gradTab";
-            this.gradTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.gradTab.Size = new System.Drawing.Size(760, 421);
+            this.gradTab.Padding = new System.Windows.Forms.Padding(3);
+            this.gradTab.Size = new System.Drawing.Size(1072, 604);
             this.gradTab.TabIndex = 1;
             this.gradTab.Text = "Graduate Programs";
             this.gradTab.UseVisualStyleBackColor = true;
@@ -208,11 +212,12 @@
             // 
             // minorsTab
             // 
+            this.minorsTab.AutoScroll = true;
             this.minorsTab.Controls.Add(this.label2);
             this.minorsTab.Location = new System.Drawing.Point(4, 22);
             this.minorsTab.Name = "minorsTab";
-            this.minorsTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.minorsTab.Size = new System.Drawing.Size(760, 421);
+            this.minorsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.minorsTab.Size = new System.Drawing.Size(1072, 604);
             this.minorsTab.TabIndex = 2;
             this.minorsTab.Text = "Minors";
             this.minorsTab.UseVisualStyleBackColor = true;
@@ -231,8 +236,8 @@
             this.employTab.Controls.Add(this.empTitle);
             this.employTab.Location = new System.Drawing.Point(4, 22);
             this.employTab.Name = "employTab";
-            this.employTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.employTab.Size = new System.Drawing.Size(989, 556);
+            this.employTab.Padding = new System.Windows.Forms.Padding(3);
+            this.employTab.Size = new System.Drawing.Size(1089, 656);
             this.employTab.TabIndex = 2;
             this.employTab.Text = "Employment";
             this.employTab.UseVisualStyleBackColor = true;
@@ -251,8 +256,8 @@
             this.studLocTab.Controls.Add(this.studentLocBrowser);
             this.studLocTab.Location = new System.Drawing.Point(4, 22);
             this.studLocTab.Name = "studLocTab";
-            this.studLocTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.studLocTab.Size = new System.Drawing.Size(760, 459);
+            this.studLocTab.Padding = new System.Windows.Forms.Padding(3);
+            this.studLocTab.Size = new System.Drawing.Size(1089, 656);
             this.studLocTab.TabIndex = 3;
             this.studLocTab.Text = "Student Location";
             this.studLocTab.UseVisualStyleBackColor = true;
@@ -263,7 +268,7 @@
             this.studentLocBrowser.Location = new System.Drawing.Point(3, 3);
             this.studentLocBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.studentLocBrowser.Name = "studentLocBrowser";
-            this.studentLocBrowser.Size = new System.Drawing.Size(754, 453);
+            this.studentLocBrowser.Size = new System.Drawing.Size(1083, 650);
             this.studentLocBrowser.TabIndex = 0;
             this.studentLocBrowser.Url = new System.Uri("http://ist.rit.edu/api/map", System.UriKind.Absolute);
             // 
@@ -271,7 +276,7 @@
             // 
             this.pplTab.Location = new System.Drawing.Point(4, 22);
             this.pplTab.Name = "pplTab";
-            this.pplTab.Size = new System.Drawing.Size(760, 459);
+            this.pplTab.Size = new System.Drawing.Size(1089, 656);
             this.pplTab.TabIndex = 4;
             this.pplTab.Text = "Our People";
             this.pplTab.UseVisualStyleBackColor = true;
@@ -280,7 +285,7 @@
             // 
             this.researchTab.Location = new System.Drawing.Point(4, 22);
             this.researchTab.Name = "researchTab";
-            this.researchTab.Size = new System.Drawing.Size(760, 459);
+            this.researchTab.Size = new System.Drawing.Size(1089, 656);
             this.researchTab.TabIndex = 5;
             this.researchTab.Text = "Research";
             this.researchTab.UseVisualStyleBackColor = true;
@@ -290,7 +295,7 @@
             this.resourceTab.Controls.Add(this.resourceTitle);
             this.resourceTab.Location = new System.Drawing.Point(4, 22);
             this.resourceTab.Name = "resourceTab";
-            this.resourceTab.Size = new System.Drawing.Size(760, 459);
+            this.resourceTab.Size = new System.Drawing.Size(1089, 656);
             this.resourceTab.TabIndex = 6;
             this.resourceTab.Text = "Resources";
             this.resourceTab.UseVisualStyleBackColor = true;
@@ -308,7 +313,7 @@
             // 
             this.newsTab.Location = new System.Drawing.Point(4, 22);
             this.newsTab.Name = "newsTab";
-            this.newsTab.Size = new System.Drawing.Size(760, 459);
+            this.newsTab.Size = new System.Drawing.Size(1089, 656);
             this.newsTab.TabIndex = 7;
             this.newsTab.Text = "News";
             this.newsTab.UseVisualStyleBackColor = true;
@@ -319,11 +324,33 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // contactTab
+            // 
+            this.contactTab.Controls.Add(this.contactBrowser);
+            this.contactTab.Location = new System.Drawing.Point(4, 22);
+            this.contactTab.Name = "contactTab";
+            this.contactTab.Size = new System.Drawing.Size(1089, 656);
+            this.contactTab.TabIndex = 8;
+            this.contactTab.Text = "Contact Us";
+            this.contactTab.UseVisualStyleBackColor = true;
+            // 
+            // contactBrowser
+            // 
+            this.contactBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.contactBrowser.Location = new System.Drawing.Point(0, 3);
+            this.contactBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.contactBrowser.Name = "contactBrowser";
+            this.contactBrowser.Size = new System.Drawing.Size(1071, 621);
+            this.contactBrowser.TabIndex = 0;
+            this.contactBrowser.Url = new System.Uri("http://www.ist.rit.edu/api/contactForm/", System.UriKind.Absolute);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1084, 661);
             this.Controls.Add(this.tabControl);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -343,6 +370,7 @@
             this.studLocTab.ResumeLayout(false);
             this.resourceTab.ResumeLayout(false);
             this.resourceTab.PerformLayout();
+            this.contactTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -373,5 +401,7 @@
         private System.Windows.Forms.Label empTitle;
         private System.Windows.Forms.Label resourceTitle;
         private System.Windows.Forms.WebBrowser studentLocBrowser;
+        private System.Windows.Forms.TabPage contactTab;
+        private System.Windows.Forms.WebBrowser contactBrowser;
     }
 }

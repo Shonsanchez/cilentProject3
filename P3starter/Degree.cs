@@ -15,6 +15,15 @@ namespace P3starter
         public List<String> availableCertificates { get; set; }
     }
 
+    class Minor
+    {
+        public String name { set; get; }
+        public String title { set; get; }
+        public String description { set; get; }
+        public List<String> courses { set; get; }
+        public String note { set; get; }
+    }
+
     class ugDegrees
     {
         public List<Degree> undergraduate { get; set; }
@@ -23,5 +32,10 @@ namespace P3starter
     class gradDegrees
     {
         public List<Degree> graduate { get; set; }
+    }
+
+    class Minors
+    {
+        public List<Minor> UgMinors { get; set; }
     }
 }
