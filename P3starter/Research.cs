@@ -8,8 +8,8 @@ namespace P3starter
 {
     class Research
     {
-        public ByInterestArea byInterestArea { set; get; }
-        public ByFaculty byFaculty { set; get; }
+        public List<ByInterestArea> byInterestArea { set; get; }
+        public List<ByFaculty> byFaculty { set; get; }
     }
 
     class ByInterestArea

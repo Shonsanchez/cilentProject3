@@ -38,11 +38,18 @@ namespace P3starter
             // Quoter's Name
             quoterlbl.Text = about.quoteAuthor;
 
+            createAllTabs();
+        }
+
+        public void createAllTabs()
+        {
             createPPl();
             createUgTab();
             createGradTab();
             createMinors();
             createEmploymentTab();
+            createNewsTab();
+            createResearchTab();
         }
 
         //Creates the content for the people tab
@@ -257,6 +264,130 @@ namespace P3starter
             }
             panel2.Location = new Point(40, 800);
             employTab.Controls.Add(panel2);
+        }
+
+        public void createNewsTab()
+        {
+            String jsonEmployment = istRest.getRESTData("/news/");
+
+            // Cast the objects
+            News news = JToken.Parse(jsonEmployment).ToObject<News>();
+            int x = 50;
+            int y = 50;
+            foreach (Article article in news.year)
+            {
+                Panel panel = new Panel();
+                panel.Size = new Size(400, 50);
+                panel.BackColor = Color.Orange;
+                panel.Click += (s, e) =>
+                {
+                    Popup p = new Popup(article.description);
+                    p.ShowDialog();
+                };
+                Label label = e.createLabel(article.title, 0, 0);
+                label.Click += (s, e) =>
+                {
+                    Popup p = new Popup(article.description);
+                    p.ShowDialog();
+                };
+                panel.Controls.Add(label);
+                label = e.createLabel(article.date, 0, 20);
+                label.Click += (s, e) =>
+                {
+                    Popup p = new Popup(article.description);
+                    p.ShowDialog();
+                };
+                panel.Controls.Add(label);
+                panel.Location = new Point(x, y);
+                newsTab.Controls.Add(panel);
+                y += 90;
+            }
+            x += 400;
+            y = 50;
+            foreach (Article article in news.older)
+            {
+                Console.Write(article.title);
+                Panel panel = new Panel();
+                panel.Size = new Size(400, 50);
+                panel.BackColor = Color.Orange;
+                panel.Click += (s, e) =>
+                {
+                    Popup p = new Popup(article.description);
+                    p.ShowDialog();
+                };
+                Label label = e.createLabel(article.title, 0, 0);
+                label.Click += (s, e) =>
+                {
+                    Popup p = new Popup(article.description);
+                    p.ShowDialog();
+                };
+                panel.Controls.Add(label);
+                label = e.createLabel(article.date, 0, 20);
+                label.Click += (s, e) =>
+                {
+                    Popup p = new Popup(article.description);
+                    p.ShowDialog();
+                };
+                panel.Controls.Add(label);
+                panel.Location = new Point(x, y);
+                newsTab.Controls.Add(panel);
+                y += 90;
+            }
+        }
+
+        public void createResearchTab()
+        {
+            String jsonResearch = istRest.getRESTData("/research/");
+
+            // Cast the objects
+            Research research = JToken.Parse(jsonResearch).ToObject<Research>();
+            int x = 50;
+            int y = 50;
+            foreach (ByFaculty fac in research.byFaculty)
+            {
+                Panel panel = new Panel();
+                panel.Size = new Size(400, 50);
+                panel.BackColor = Color.Orange;
+                panel.Click += (s, e) =>
+                {
+                    Popup p = new Popup(fac.citations);
+                    p.ShowDialog();
+                };
+                Label label = e.createLabel(fac.facultyName, 0, 0);
+                label.Click += (s, e) =>
+                {
+                    Popup p = new Popup(fac.citations);
+                    p.ShowDialog();
+                };
+                panel.Controls.Add(label);
+                panel.Location = new Point(x, y);
+                researchTab.Controls.Add(panel);
+                y += 90;
+            }
+            x += 500;
+            y = 50;
+            foreach (ByInterestArea area in research.byInterestArea)
+            {
+                Panel panel = new Panel();
+                panel.Size = new Size(400, 50);
+                panel.BackColor = Color.Orange;
+                panel.Click += (s, e) =>
+                {
+                    Popup p = new Popup(area.citations);
+                    p.ShowDialog();
+                };
+                Label label = e.createLabel(area.areaName, 0, 0);
+                label.Click += (s, e) =>
+                {
+                    Popup p = new Popup(area.citations);
+                    p.ShowDialog();
+                };
+                panel.Controls.Add(label);
+                panel.Location = new Point(x, y);
+                researchTab.Controls.Add(panel);
+                y += 90;
+            }
+
         }
     }
 }
