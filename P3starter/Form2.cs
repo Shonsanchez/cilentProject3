@@ -176,6 +176,7 @@ namespace P3starter
                 y = y2;
             }
         }
+
         public void createEmploymentTab()
         {
             string jsonEmployment = istRest.getRESTData("/employment/");
@@ -197,11 +198,65 @@ namespace P3starter
                 y = 80;
             }
             y = 300;
+            x = 50;
+
+            //Creates a panel for each Statistic 
             foreach(Statistic stat in employment.degreeStatistics.statistics)
             {
-
+                Panel panel = new Panel();
+                panel.Controls.Add(e.createLabel(stat.value, 0, 0));
+                panel.Controls.Add(e.createTextBox(stat.Description, 0, 40,300,100));
+                panel.Size = new Size(300, 150);
+                panel.BackColor = Color.Orange;
+                panel.Location = new Point(x, y);
+                panel.Font = new Font(panel.Font.FontFamily, 14);
+                employTab.Controls.Add(panel);
+                if (x>=450)
+                {
+                    x = 50;
+                    y += 175;
+                }
+                else
+                {
+                    x += 400;
+                }
             }
+            Panel panel2 = new Panel();
+            panel2.BackColor = Color.Orange;
+            panel2.Size = new Size(700, 100);
+            panel2.Controls.Add(e.createLabel(employment.employers.title,30,20));
+            int panelx = 0;
+            int panely = 50;
+            foreach(String employer in employment.employers.employerNames)
+            {
+                panel2.Controls.Add(e.createLabel(employer,panelx, panely));
+                panelx += 105;
+                if (x >= 600)
+                {
+                    x = 0;
+                    y += 30;
+                }
+            }
+            panel2.Location = new Point(40, 700);
+            employTab.Controls.Add(panel2);
+            panel2 = new Panel();
+            panel2.BackColor = Color.Orange;
+            panel2.Size = new Size(700, 100);
+            panel2.Controls.Add(e.createLabel(employment.careers.title, 30, 20));
+            panelx = 0;
+            panely = 50;
+            foreach (String career in employment.careers.careerNames)
+            {
+                panel2.Controls.Add(e.createLabel(career, panelx, panely));
+                panelx += 105;
+                if (x >= 600)
+                {
+                    x = 0;
+                    y += 30;
+                }
+            }
+            panel2.Location = new Point(40, 800);
+            employTab.Controls.Add(panel2);
         }
-
     }
 }
