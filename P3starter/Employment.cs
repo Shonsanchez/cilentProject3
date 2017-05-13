@@ -21,10 +21,10 @@ namespace P3starter
     class DegreeStatistics
     {
         public String title { set; get; }
-        public List<Statistics> statistics { set; get; }
+        public List<Statistic> statistics { set; get; }
     }
 
-    class Statistics
+    class Statistic
     {
         public String value { set; get; }
         public String Description { set; get; }

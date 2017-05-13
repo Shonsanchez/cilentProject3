@@ -17,6 +17,7 @@ namespace P3starter
             Label label = new Label();
             label.Text = text;
             label.Location = new Point(x, y);
+            label.AutoSize = true;
             return label;
         }
 
@@ -26,6 +27,7 @@ namespace P3starter
             label.Text = text;
             label.Location = new Point(x, y);
             label.Size = new Size(length, height);
+            label.AutoSize = true;
             return label;
         }
 

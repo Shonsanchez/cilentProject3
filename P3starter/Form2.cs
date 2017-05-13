@@ -42,6 +42,7 @@ namespace P3starter
             createUgTab();
             createGradTab();
             createMinors();
+            createEmploymentTab();
         }
 
         //Creates the content for the people tab
@@ -158,7 +159,7 @@ namespace P3starter
                 String title = minor.title;
                 minorsTab.Controls.Add(e.createLabel(title, x, y, 230, 20));
                 y += 20;
-                minorsTab.Controls.Add(e.createTextBox(minor.description, x, y, 200, 75));
+                minorsTab.Controls.Add(e.createTextBox(minor.description, x, y, 230, 75));
                 y += 100;
                 minorsTab.Controls.Add(e.createLabel("Courses", x, y));
                 foreach (String con in minor.courses)
@@ -166,8 +167,8 @@ namespace P3starter
                     y += 22;
                     minorsTab.Controls.Add(e.createLabel("     \u2022" + con, x, y));
                 }
-                x+=250;
-                if(x > 800)
+                x+=320;
+                if(x > 1100)
                 {
                     y2 += 350;
                     x = 50;
@@ -175,5 +176,32 @@ namespace P3starter
                 y = y2;
             }
         }
+        public void createEmploymentTab()
+        {
+            string jsonEmployment = istRest.getRESTData("/employment/");
+
+            // Cast the objects
+            Employment employment = JToken.Parse(jsonEmployment).ToObject<Employment>();
+            //Create the intro part of the employment table
+            int x = 270;
+            int y = 50;
+            employTab.Controls.Add(e.createLabel(employment.introduction.title,x,y,250,20));
+            x = 50;
+            y += 30;
+            foreach(Content cont in employment.introduction.content)
+            {
+                employTab.Controls.Add(e.createLabel(cont.title, x, y));
+                y += 30;
+                employTab.Controls.Add(e.createTextBox(cont.description, x, y, 300, 120));
+                x += 400;
+                y = 80;
+            }
+            y = 300;
+            foreach(Statistic stat in employment.degreeStatistics.statistics)
+            {
+
+            }
+        }
+
     }
 }

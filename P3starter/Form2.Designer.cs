@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.quoterlbl = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@
             this.minorsTab = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.employTab = new System.Windows.Forms.TabPage();
-            this.empTitle = new System.Windows.Forms.Label();
             this.studLocTab = new System.Windows.Forms.TabPage();
             this.studentLocBrowser = new System.Windows.Forms.WebBrowser();
             this.pplTab = new System.Windows.Forms.TabPage();
@@ -54,7 +52,6 @@
             this.newsTab = new System.Windows.Forms.TabPage();
             this.contactTab = new System.Windows.Forms.TabPage();
             this.contactBrowser = new System.Windows.Forms.WebBrowser();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl.SuspendLayout();
             this.aboutTab.SuspendLayout();
             this.programTab.SuspendLayout();
@@ -62,7 +59,6 @@
             this.ugTab.SuspendLayout();
             this.gradTab.SuspendLayout();
             this.minorsTab.SuspendLayout();
-            this.employTab.SuspendLayout();
             this.studLocTab.SuspendLayout();
             this.resourceTab.SuspendLayout();
             this.contactTab.SuspendLayout();
@@ -86,7 +82,7 @@
             this.tabControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1646, 1049);
+            this.tabControl.Size = new System.Drawing.Size(1398, 776);
             this.tabControl.TabIndex = 0;
             // 
             // aboutTab
@@ -99,7 +95,7 @@
             this.aboutTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.aboutTab.Name = "aboutTab";
             this.aboutTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.aboutTab.Size = new System.Drawing.Size(1638, 1016);
+            this.aboutTab.Size = new System.Drawing.Size(1390, 743);
             this.aboutTab.TabIndex = 0;
             this.aboutTab.Text = "About";
             this.aboutTab.UseVisualStyleBackColor = true;
@@ -158,7 +154,7 @@
             this.programTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.programTab.Name = "programTab";
             this.programTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.programTab.Size = new System.Drawing.Size(1638, 1016);
+            this.programTab.Size = new System.Drawing.Size(1390, 743);
             this.programTab.TabIndex = 1;
             this.programTab.Text = "Programs";
             this.programTab.UseVisualStyleBackColor = true;
@@ -175,7 +171,7 @@
             this.programsTC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.programsTC.Name = "programsTC";
             this.programsTC.SelectedIndex = 0;
-            this.programsTC.Size = new System.Drawing.Size(1620, 969);
+            this.programsTC.Size = new System.Drawing.Size(1372, 696);
             this.programsTC.TabIndex = 3;
             // 
             // ugTab
@@ -185,7 +181,7 @@
             this.ugTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ugTab.Name = "ugTab";
             this.ugTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ugTab.Size = new System.Drawing.Size(1612, 936);
+            this.ugTab.Size = new System.Drawing.Size(1364, 663);
             this.ugTab.TabIndex = 0;
             this.ugTab.Text = "Undergraduate Programs";
             this.ugTab.UseVisualStyleBackColor = true;
@@ -207,7 +203,7 @@
             this.gradTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gradTab.Name = "gradTab";
             this.gradTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gradTab.Size = new System.Drawing.Size(1612, 936);
+            this.gradTab.Size = new System.Drawing.Size(1364, 663);
             this.gradTab.TabIndex = 1;
             this.gradTab.Text = "Graduate Programs";
             this.gradTab.UseVisualStyleBackColor = true;
@@ -225,13 +221,13 @@
             // minorsTab
             // 
             this.minorsTab.AutoScroll = true;
-            this.minorsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.minorsTab.BackColor = System.Drawing.Color.White;
             this.minorsTab.Controls.Add(this.label2);
             this.minorsTab.Location = new System.Drawing.Point(4, 29);
             this.minorsTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.minorsTab.Name = "minorsTab";
             this.minorsTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.minorsTab.Size = new System.Drawing.Size(1612, 936);
+            this.minorsTab.Size = new System.Drawing.Size(1364, 663);
             this.minorsTab.TabIndex = 2;
             this.minorsTab.Text = "Minors";
             // 
@@ -247,25 +243,14 @@
             // 
             // employTab
             // 
-            this.employTab.Controls.Add(this.empTitle);
             this.employTab.Location = new System.Drawing.Point(4, 29);
             this.employTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employTab.Name = "employTab";
             this.employTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.employTab.Size = new System.Drawing.Size(1638, 1016);
+            this.employTab.Size = new System.Drawing.Size(1390, 743);
             this.employTab.TabIndex = 2;
             this.employTab.Text = "Employment";
             this.employTab.UseVisualStyleBackColor = true;
-            // 
-            // empTitle
-            // 
-            this.empTitle.AutoSize = true;
-            this.empTitle.Location = new System.Drawing.Point(56, 42);
-            this.empTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.empTitle.Name = "empTitle";
-            this.empTitle.Size = new System.Drawing.Size(38, 20);
-            this.empTitle.TabIndex = 0;
-            this.empTitle.Text = "Title";
             // 
             // studLocTab
             // 
@@ -274,7 +259,7 @@
             this.studLocTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.studLocTab.Name = "studLocTab";
             this.studLocTab.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.studLocTab.Size = new System.Drawing.Size(1638, 1016);
+            this.studLocTab.Size = new System.Drawing.Size(1390, 743);
             this.studLocTab.TabIndex = 3;
             this.studLocTab.Text = "Student Location";
             this.studLocTab.UseVisualStyleBackColor = true;
@@ -286,7 +271,8 @@
             this.studentLocBrowser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.studentLocBrowser.MinimumSize = new System.Drawing.Size(30, 31);
             this.studentLocBrowser.Name = "studentLocBrowser";
-            this.studentLocBrowser.Size = new System.Drawing.Size(1630, 1006);
+            this.studentLocBrowser.ScriptErrorsSuppressed = true;
+            this.studentLocBrowser.Size = new System.Drawing.Size(1382, 733);
             this.studentLocBrowser.TabIndex = 0;
             this.studentLocBrowser.Url = new System.Uri("http://ist.rit.edu/api/map", System.UriKind.Absolute);
             // 
@@ -295,7 +281,7 @@
             this.pplTab.Location = new System.Drawing.Point(4, 29);
             this.pplTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pplTab.Name = "pplTab";
-            this.pplTab.Size = new System.Drawing.Size(1638, 1016);
+            this.pplTab.Size = new System.Drawing.Size(1390, 743);
             this.pplTab.TabIndex = 4;
             this.pplTab.Text = "Our People";
             this.pplTab.UseVisualStyleBackColor = true;
@@ -305,7 +291,7 @@
             this.researchTab.Location = new System.Drawing.Point(4, 29);
             this.researchTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.researchTab.Name = "researchTab";
-            this.researchTab.Size = new System.Drawing.Size(1638, 1016);
+            this.researchTab.Size = new System.Drawing.Size(1390, 743);
             this.researchTab.TabIndex = 5;
             this.researchTab.Text = "Research";
             this.researchTab.UseVisualStyleBackColor = true;
@@ -316,7 +302,7 @@
             this.resourceTab.Location = new System.Drawing.Point(4, 29);
             this.resourceTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.resourceTab.Name = "resourceTab";
-            this.resourceTab.Size = new System.Drawing.Size(1638, 1016);
+            this.resourceTab.Size = new System.Drawing.Size(1390, 743);
             this.resourceTab.TabIndex = 6;
             this.resourceTab.Text = "Resources";
             this.resourceTab.UseVisualStyleBackColor = true;
@@ -336,7 +322,7 @@
             this.newsTab.Location = new System.Drawing.Point(4, 29);
             this.newsTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.newsTab.Name = "newsTab";
-            this.newsTab.Size = new System.Drawing.Size(1638, 1016);
+            this.newsTab.Size = new System.Drawing.Size(1390, 743);
             this.newsTab.TabIndex = 7;
             this.newsTab.Text = "News";
             this.newsTab.UseVisualStyleBackColor = true;
@@ -347,7 +333,7 @@
             this.contactTab.Location = new System.Drawing.Point(4, 29);
             this.contactTab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contactTab.Name = "contactTab";
-            this.contactTab.Size = new System.Drawing.Size(1638, 1016);
+            this.contactTab.Size = new System.Drawing.Size(1390, 743);
             this.contactTab.TabIndex = 8;
             this.contactTab.Text = "Contact Us";
             this.contactTab.UseVisualStyleBackColor = true;
@@ -366,17 +352,11 @@
             this.contactBrowser.TabIndex = 0;
             this.contactBrowser.Url = new System.Uri("http://www.ist.rit.edu/api/contactForm/", System.UriKind.Absolute);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(74, 4);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1626, 1017);
+            this.ClientSize = new System.Drawing.Size(1378, 744);
             this.Controls.Add(this.tabControl);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form2";
@@ -392,8 +372,6 @@
             this.gradTab.PerformLayout();
             this.minorsTab.ResumeLayout(false);
             this.minorsTab.PerformLayout();
-            this.employTab.ResumeLayout(false);
-            this.employTab.PerformLayout();
             this.studLocTab.ResumeLayout(false);
             this.resourceTab.ResumeLayout(false);
             this.resourceTab.PerformLayout();
@@ -417,7 +395,6 @@
         private System.Windows.Forms.TextBox aboutText;
         private System.Windows.Forms.TextBox quotetb;
         private System.Windows.Forms.Label quoterlbl;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TabControl programsTC;
         private System.Windows.Forms.TabPage ugTab;
         private System.Windows.Forms.Label ugTitle;
@@ -425,7 +402,6 @@
         private System.Windows.Forms.TabPage minorsTab;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label empTitle;
         private System.Windows.Forms.Label resourceTitle;
         private System.Windows.Forms.WebBrowser studentLocBrowser;
         private System.Windows.Forms.TabPage contactTab;

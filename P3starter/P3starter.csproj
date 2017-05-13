@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.cs" />
+    <Compile Include="Courses.cs" />
     <Compile Include="Footer.cs" />
     <Compile Include="News.cs" />
     <Compile Include="Research.cs" />
