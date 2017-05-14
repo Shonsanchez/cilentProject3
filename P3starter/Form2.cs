@@ -79,7 +79,7 @@ namespace P3starter
                 pb.Load(thisFac.imagePath);
                 pb.Click += (s, e) =>
                 {
-                    Popup p = new Popup(thisFac);
+                    PopupForm p = new PopupForm(thisFac);
                     p.ShowDialog();
                 };
                 pplTab.Controls.Add(pb);
@@ -109,7 +109,7 @@ namespace P3starter
                 pb.Load(staff.imagePath);
                 pb.Click += (s, e) =>
                 {
-                    Popup p = new Popup(staff);
+                    PopupForm p = new PopupForm(staff);
                     p.ShowDialog();
                 };
                 pplTab.Controls.Add(pb);
@@ -138,24 +138,52 @@ namespace P3starter
 
             // Cast the objects
             ugDegrees degrees = JToken.Parse(jsonDegrees).ToObject<ugDegrees>();
-            int x = 50;
-            int y = 70;
+        
+            int x = 350;
+            int y = 20;
+            Panel contentPanel = new Panel();
+            contentPanel.AutoSize = true;
+            contentPanel.Controls.Add(e.createLabel("Our Undergraduate Programs", x,y));
+            y += 15;
+            x = 20;
             foreach (Degree degree in degrees.undergraduate)
-            {
+             {
+                x = 20;
+                //create panel
+                Panel panel = new Panel();
+                panel.AutoSize = true;
+                panel.Location = new Point(x, y);
+
+                FlowLayoutPanel concen = new FlowLayoutPanel();
+                concen.Size = new Size(375,125);
+                concen.BackColor = Color.Orange;
+
+                x = 20;
                 String title = degree.degreeName + " (" + degree.title + ")";
-                ugTab.Controls.Add(e.createLabel(title, x, y, 250, 20));
+                panel.Controls.Add(e.createLabel(title, x, y));
                 y += 20;
-                ugTab.Controls.Add(e.createTextBox(degree.description, x, y, 200, 75));
-                y += 100;
-                ugTab.Controls.Add(e.createLabel("Concentrations", x, y));
+                panel.Controls.Add(e.createTextBox(degree.description, x, y, 375, 125,12));
+                y -= 20;
+                x += 450;
+                panel.Controls.Add(e.createLabel("Concentrations", x, y));
+                y += 20;
+                concen.Location = new Point(x, y);
+                concen.WrapContents = false;
+                concen.FlowDirection = FlowDirection.TopDown;
+                y -= 20;
+                int y2 = y;
                 foreach (String con in degree.concentrations)
                 {
-                    y += 22;
-                    ugTab.Controls.Add(e.createLabel("     \u2022" + con, x, y));
+                    y2 += 22;
+                    concen.Controls.Add(e.createLabel("     \u2022" + con, x, y2));
                 }
-                y = 70;
-                x += 300;
-            }
+                panel.Controls.Add(concen);
+                contentPanel.Controls.Add(panel);
+                contentPanel.Anchor = AnchorStyles.None;
+                contentPanel.Left = (this.ClientSize.Width - contentPanel.Width) / 2;
+                testingPanel.Controls.Add(contentPanel);
+                y += 80;
+             }
         }
 
         // Creates the content for the Undergrad section of the programs tab
@@ -330,20 +358,20 @@ namespace P3starter
                 panel.BackColor = Color.Orange;
                 panel.Click += (s, e) =>
                 {
-                    Popup p = new Popup(article.description);
+                    PopupForm p = new PopupForm(article.description);
                     p.ShowDialog();
                 };
                 Label label = e.createLabel(article.title, 0, 0);
                 label.Click += (s, e) =>
                 {
-                    Popup p = new Popup(article.description);
+                    PopupForm p = new PopupForm(article.description);
                     p.ShowDialog();
                 };
                 panel.Controls.Add(label);
                 label = e.createLabel(article.date, 0, 20);
                 label.Click += (s, e) =>
                 {
-                    Popup p = new Popup(article.description);
+                    PopupForm p = new PopupForm(article.description);
                     p.ShowDialog();
                 };
                 panel.Controls.Add(label);
@@ -351,7 +379,7 @@ namespace P3starter
                 newsTab.Controls.Add(panel);
                 y += 90;
             }
-            x += 400;
+            x += 450;
             y = 50;
             foreach (Article article in news.older)
             {
@@ -360,20 +388,20 @@ namespace P3starter
                 panel.BackColor = Color.Orange;
                 panel.Click += (s, e) =>
                 {
-                    Popup p = new Popup(article.description);
+                    PopupForm p = new PopupForm(article.description);
                     p.ShowDialog();
                 };
                 Label label = e.createLabel(article.title, 0, 0);
                 label.Click += (s, e) =>
                 {
-                    Popup p = new Popup(article.description);
+                    PopupForm p = new PopupForm(article.description);
                     p.ShowDialog();
                 };
                 panel.Controls.Add(label);
                 label = e.createLabel(article.date, 0, 20);
                 label.Click += (s, e) =>
                 {
-                    Popup p = new Popup(article.description);
+                    PopupForm p = new PopupForm(article.description);
                     p.ShowDialog();
                 };
                 panel.Controls.Add(label);
@@ -398,13 +426,13 @@ namespace P3starter
                 panel.BackColor = Color.Orange;
                 panel.Click += (s, e) =>
                 {
-                    Popup p = new Popup(fac.citations);
+                    PopupForm p = new PopupForm(fac.citations);
                     p.ShowDialog();
                 };
                 Label label = e.createLabel(fac.facultyName, 0, 0);
                 label.Click += (s, e) =>
                 {
-                    Popup p = new Popup(fac.citations);
+                    PopupForm p = new PopupForm(fac.citations);
                     p.ShowDialog();
                 };
                 panel.Controls.Add(label);
@@ -421,13 +449,13 @@ namespace P3starter
                 panel.BackColor = Color.Orange;
                 panel.Click += (s, e) =>
                 {
-                    Popup p = new Popup(area.citations);
+                    PopupForm p = new PopupForm(area.citations);
                     p.ShowDialog();
                 };
                 Label label = e.createLabel(area.areaName, 0, 0);
                 label.Click += (s, e) =>
                 {
-                    Popup p = new Popup(area.citations);
+                    PopupForm p = new PopupForm(area.citations);
                     p.ShowDialog();
                 };
                 panel.Controls.Add(label);
@@ -492,7 +520,7 @@ namespace P3starter
                 y += 15;
                 advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.department, x, y));
                 y += 15;
-                advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.department, x, y));
+                advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.email, x, y));
                 y += 30;
             }
             y = 230;
@@ -560,7 +588,7 @@ namespace P3starter
                 button.AutoSize = true;
                 button.Click += (s, e) =>
                 {
-                    System.Diagnostics.Process.Start(gf.href);
+                    System.Diagnostics.Process.Start("https://www.ist.rit.edu/" + gf.href);
                 };
                 formsTab.Controls.Add(button);
                 y += 30;
@@ -572,7 +600,7 @@ namespace P3starter
                 button.AutoSize = true;
                 button.Click += (s, e) =>
                 {
-                    System.Diagnostics.Process.Start(gf.href);
+                    System.Diagnostics.Process.Start("https://www.ist.rit.edu/"+gf.href);
                 };
                 formsTab.Controls.Add(button);
             }
@@ -608,6 +636,11 @@ namespace P3starter
                 System.Diagnostics.Process.Start(CE.RITJobZoneGuidelink);
             };
             coopTab.Controls.Add(button);
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

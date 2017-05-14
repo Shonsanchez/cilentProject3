@@ -18,6 +18,7 @@ namespace P3starter
             label.Text = text;
             label.Location = new Point(x, y);
             label.AutoSize = true;
+            label.Font = new Font("Arial", 10);
             return label;
         }
 
@@ -28,6 +29,7 @@ namespace P3starter
             label.Location = new Point(x, y);
             label.Size = new Size(length, height);
             label.AutoSize = true;
+            label.Font = new Font("Arial", 10);
             return label;
         }
 
@@ -49,6 +51,19 @@ namespace P3starter
             tb.Size = new Size(length, height);
             tb.Multiline = true;
             tb.ScrollBars = ScrollBars.Vertical;
+            tb.Font = new Font("Arial", tb.Font.Size);
+            return tb;
+        }
+
+        public TextBox createTextBox(String text, int x, int y, int length, int height, int fontSize)
+        {
+            TextBox tb = new TextBox();
+            tb.Text = text;
+            tb.Location = new Point(x, y);
+            tb.Size = new Size(length, height);
+            tb.Multiline = true;
+            tb.ScrollBars = ScrollBars.Vertical;
+            tb.Font = new Font("Arial", fontSize);
             return tb;
         }
     }
