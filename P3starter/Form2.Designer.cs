@@ -272,6 +272,7 @@
             // 
             // pplTab
             // 
+            this.pplTab.AutoScroll = true;
             this.pplTab.Location = new System.Drawing.Point(4, 22);
             this.pplTab.Name = "pplTab";
             this.pplTab.Size = new System.Drawing.Size(1089, 755);
@@ -361,10 +362,11 @@
             // 
             // advisingTab
             // 
+            this.advisingTab.AutoScroll = true;
             this.advisingTab.Location = new System.Drawing.Point(4, 22);
             this.advisingTab.Name = "advisingTab";
             this.advisingTab.Padding = new System.Windows.Forms.Padding(3);
-            this.advisingTab.Size = new System.Drawing.Size(192, 74);
+            this.advisingTab.Size = new System.Drawing.Size(1075, 709);
             this.advisingTab.TabIndex = 1;
             this.advisingTab.Text = "Advising";
             this.advisingTab.UseVisualStyleBackColor = true;
@@ -373,16 +375,17 @@
             // 
             this.tutorTab.Location = new System.Drawing.Point(4, 22);
             this.tutorTab.Name = "tutorTab";
-            this.tutorTab.Size = new System.Drawing.Size(192, 74);
+            this.tutorTab.Size = new System.Drawing.Size(1075, 709);
             this.tutorTab.TabIndex = 2;
             this.tutorTab.Text = "Tutors/Lab Information";
             this.tutorTab.UseVisualStyleBackColor = true;
             // 
             // ambassTab
             // 
+            this.ambassTab.AutoScroll = true;
             this.ambassTab.Location = new System.Drawing.Point(4, 22);
             this.ambassTab.Name = "ambassTab";
-            this.ambassTab.Size = new System.Drawing.Size(192, 74);
+            this.ambassTab.Size = new System.Drawing.Size(1075, 709);
             this.ambassTab.TabIndex = 3;
             this.ambassTab.Text = "Student Ambassador Informatin & Application";
             this.ambassTab.UseVisualStyleBackColor = true;
@@ -398,9 +401,10 @@
             // 
             // coopTab
             // 
+            this.coopTab.AutoScroll = true;
             this.coopTab.Location = new System.Drawing.Point(4, 22);
             this.coopTab.Name = "coopTab";
-            this.coopTab.Size = new System.Drawing.Size(192, 74);
+            this.coopTab.Size = new System.Drawing.Size(1075, 709);
             this.coopTab.TabIndex = 5;
             this.coopTab.Text = "Coop-Enrollment";
             this.coopTab.UseVisualStyleBackColor = true;

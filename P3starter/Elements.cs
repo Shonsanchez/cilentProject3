@@ -48,6 +48,7 @@ namespace P3starter
             tb.Location = new Point(x, y);
             tb.Size = new Size(length, height);
             tb.Multiline = true;
+            tb.ScrollBars = ScrollBars.Vertical;
             return tb;
         }
     }

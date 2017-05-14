@@ -37,5 +37,47 @@ namespace P3starter
             }
         }
 
+        public Popup(Faculty f)
+        {
+            InitializeComponent();
+            int x = 50;
+            int y = 50;
+            PictureBox pb = new PictureBox();
+            pb.Size = new Size(150, 150);
+            pb.Location = new Point(x, y);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.Load(f.imagePath);
+            contentPane.Controls.Add(pb);
+            contentPane.Controls.Add(e.createLabel("Name: " + f.name, x, y));
+            contentPane.Controls.Add(e.createLabel("Username: " + f.username,x,y));     
+            contentPane.Controls.Add(e.createLabel("Tagline: " + f.tagline, x, y));
+            contentPane.Controls.Add(e.createLabel("Office: " + f.office, x, y));
+            contentPane.Controls.Add(e.createLabel("Title: " + f.title, x, y));
+            contentPane.Controls.Add(e.createLabel("Interest Area: " + f.interestArea, x, y));
+            contentPane.Controls.Add(e.createLabel("Email: " + f.email, x, y));
+            contentPane.Controls.Add(e.createLabel("Phone: " + f.phone, x, y));
+        }
+
+        public Popup(Staff s)
+        {
+            InitializeComponent();
+            int x = 50;
+            int y = 50;
+            PictureBox pb = new PictureBox();
+            pb.Size = new Size(150, 150);
+            pb.Location = new Point(x, y);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.Load(s.imagePath);
+            contentPane.Controls.Add(pb);
+            contentPane.Controls.Add(e.createLabel("Name: " + s.name, x, y));
+            contentPane.Controls.Add(e.createLabel("Username: " + s.username, x, y));
+            contentPane.Controls.Add(e.createLabel("Tagline: " + s.tagline, x, y));
+            contentPane.Controls.Add(e.createLabel("Office: " + s.office, x, y));
+            contentPane.Controls.Add(e.createLabel("Title: " + s.title, x, y));
+            contentPane.Controls.Add(e.createLabel("Interest Area: " + s.interestArea, x, y));
+            contentPane.Controls.Add(e.createLabel("Email: " + s.email, x, y));
+            contentPane.Controls.Add(e.createLabel("Phone: " + s.phone, x, y));
+        }
+
     }
 }

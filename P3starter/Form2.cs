@@ -38,6 +38,7 @@ namespace P3starter
             // Quoter's Name
             quoterlbl.Text = about.quoteAuthor;
 
+
             createAllTabs();
         }
 
@@ -50,6 +51,7 @@ namespace P3starter
             createEmploymentTab();
             createNewsTab();
             createResearchTab();
+            createResourcesTab();
         }
 
         //Creates the content for the people tab
@@ -60,25 +62,73 @@ namespace P3starter
             // Cast the objects
             People people = JToken.Parse(jsonPeople).ToObject<People>();
 
-            pplTab.Controls.Add(e.createLabel(people.title,10,10));
-            pplTab.Controls.Add(e.createLabel(people.subTitle,10,40,500,20));
+            pplTab.Controls.Add(e.createLabel(people.title, 10, 10));
+            pplTab.Controls.Add(e.createLabel(people.subTitle, 10, 40, 500, 20));
 
             // Print out all the faculty names
             int x = 20;
             int y = 90;
+            pplTab.Controls.Add(e.createLabel("Our Faculty", x, y));
+            y += 40;
             foreach (Faculty thisFac in people.faculty)
             {
-                pplTab.Controls.Add(e.createButton(thisFac.name,x,y));
+                PictureBox pb = new PictureBox();
+                pb.Size = new Size(150, 150);
+                pb.Location = new Point(x, y);
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                pb.Load(thisFac.imagePath);
+                pb.Click += (s, e) =>
+                {
+                    Popup p = new Popup(thisFac);
+                    p.ShowDialog();
+                };
+                pplTab.Controls.Add(pb);
+                y += 160;
+                pplTab.Controls.Add(e.createLabel(thisFac.name, x, y));
+                y -= 160;
                 if (x >= 650)
                 {
                     x = 20;
-                    y += 40;
+                    y += 210;
                 }
                 else
                 {
-                    x += 90;
+                    x += 200;
                 }
             }
+            y += 240;
+            x = 20;
+            pplTab.Controls.Add(e.createLabel("Our Staff", x, y));
+            y += 30;
+            foreach (Staff staff in people.staff)
+            {
+                PictureBox pb = new PictureBox();
+                pb.Size = new Size(150, 150);
+                pb.Location = new Point(x, y);
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                pb.Load(staff.imagePath);
+                pb.Click += (s, e) =>
+                {
+                    Popup p = new Popup(staff);
+                    p.ShowDialog();
+                };
+                pplTab.Controls.Add(pb);
+                y += 160;
+                pplTab.Controls.Add(e.createLabel(staff.name, x, y));
+                y -= 160;
+                if (x >= 650)
+                {
+                    x = 20;
+                    y += 210;
+                }
+                else
+                {
+                    x += 200;
+                }
+            }
+            y += 240;
+            x = 20;
+            pplTab.Controls.Add(e.createLabel("Our Staff", x, y));   
         }
 
         // Creates the content for the Undergrad section of the programs tab
@@ -90,18 +140,18 @@ namespace P3starter
             ugDegrees degrees = JToken.Parse(jsonDegrees).ToObject<ugDegrees>();
             int x = 50;
             int y = 70;
-            foreach(Degree degree in degrees.undergraduate)
+            foreach (Degree degree in degrees.undergraduate)
             {
                 String title = degree.degreeName + " (" + degree.title + ")";
-                ugTab.Controls.Add(e.createLabel(title, x, y,250,20));
+                ugTab.Controls.Add(e.createLabel(title, x, y, 250, 20));
                 y += 20;
-                ugTab.Controls.Add(e.createTextBox(degree.description, x,y,200,75 ));
+                ugTab.Controls.Add(e.createTextBox(degree.description, x, y, 200, 75));
                 y += 100;
-                ugTab.Controls.Add(e.createLabel("Concentrations",x,y));
-                foreach(String con in degree.concentrations)
+                ugTab.Controls.Add(e.createLabel("Concentrations", x, y));
+                foreach (String con in degree.concentrations)
                 {
                     y += 22;
-                    ugTab.Controls.Add(e.createLabel("     \u2022" + con,x,y));
+                    ugTab.Controls.Add(e.createLabel("     \u2022" + con, x, y));
                 }
                 y = 70;
                 x += 300;
@@ -120,7 +170,7 @@ namespace P3starter
             foreach (Degree degree in degrees.graduate)
             {
 
-                if(degree.concentrations != null)
+                if (degree.concentrations != null)
                 {
                     String title = degree.degreeName + " (" + degree.title + ")";
                     gradTab.Controls.Add(e.createLabel(title, x, y, 230, 20));
@@ -142,9 +192,8 @@ namespace P3starter
                     foreach (String con in degree.availableCertificates)
                     {
                         y += 22;
-                        gradTab.Controls.Add(e.createLabel("\u2022" + con, x, y, 250,20));
-                        Console.Write(con + "\n");
-                    } 
+                        gradTab.Controls.Add(e.createLabel("\u2022" + con, x, y, 250, 20));
+                    }
                 }
                 y = 70;
                 x += 250;
@@ -174,8 +223,8 @@ namespace P3starter
                     y += 22;
                     minorsTab.Controls.Add(e.createLabel("     \u2022" + con, x, y));
                 }
-                x+=320;
-                if(x > 1100)
+                x += 320;
+                if (x > 1100)
                 {
                     y2 += 350;
                     x = 50;
@@ -193,10 +242,10 @@ namespace P3starter
             //Create the intro part of the employment table
             int x = 270;
             int y = 50;
-            employTab.Controls.Add(e.createLabel(employment.introduction.title,x,y,250,20));
+            employTab.Controls.Add(e.createLabel(employment.introduction.title, x, y, 250, 20));
             x = 50;
             y += 30;
-            foreach(Content cont in employment.introduction.content)
+            foreach (Content cont in employment.introduction.content)
             {
                 employTab.Controls.Add(e.createLabel(cont.title, x, y));
                 y += 30;
@@ -208,17 +257,17 @@ namespace P3starter
             x = 50;
 
             //Creates a panel for each Statistic 
-            foreach(Statistic stat in employment.degreeStatistics.statistics)
+            foreach (Statistic stat in employment.degreeStatistics.statistics)
             {
                 Panel panel = new Panel();
                 panel.Controls.Add(e.createLabel(stat.value, 0, 0));
-                panel.Controls.Add(e.createTextBox(stat.Description, 0, 40,300,100));
+                panel.Controls.Add(e.createTextBox(stat.Description, 0, 40, 300, 100));
                 panel.Size = new Size(300, 150);
                 panel.BackColor = Color.Orange;
                 panel.Location = new Point(x, y);
                 panel.Font = new Font(panel.Font.FontFamily, 14);
                 employTab.Controls.Add(panel);
-                if (x>=450)
+                if (x >= 450)
                 {
                     x = 50;
                     y += 175;
@@ -231,12 +280,12 @@ namespace P3starter
             Panel panel2 = new Panel();
             panel2.BackColor = Color.Orange;
             panel2.Size = new Size(700, 100);
-            panel2.Controls.Add(e.createLabel(employment.employers.title,30,20));
+            panel2.Controls.Add(e.createLabel(employment.employers.title, 30, 20));
             int panelx = 0;
             int panely = 50;
-            foreach(String employer in employment.employers.employerNames)
+            foreach (String employer in employment.employers.employerNames)
             {
-                panel2.Controls.Add(e.createLabel(employer,panelx, panely));
+                panel2.Controls.Add(e.createLabel(employer, panelx, panely));
                 panelx += 105;
                 if (x >= 600)
                 {
@@ -306,7 +355,6 @@ namespace P3starter
             y = 50;
             foreach (Article article in news.older)
             {
-                Console.Write(article.title);
                 Panel panel = new Panel();
                 panel.Size = new Size(400, 50);
                 panel.BackColor = Color.Orange;
@@ -388,6 +436,178 @@ namespace P3starter
                 y += 90;
             }
 
+        }
+
+        public void createResourcesTab()
+        {
+            String jsonResource = istRest.getRESTData("/resources/");
+
+            // Cast the objects
+            Resources resource = JToken.Parse(jsonResource).ToObject<Resources>();
+            createSATab(resource.studyAbroad);
+            createAdvisingTab(resource.studentServices);
+            createInfoTab(resource.tutorsAndLabInformation);
+            createAmbassTab(resource.studentAmbassadors);
+            createFormsTab(resource.forms);
+            createCoopTab(resource.coopEnrollment);
+        }
+
+        public void createSATab(StudyAbroad s)
+        {
+            int x = 50;
+            int y = 50;
+            studyAbroadTab.Controls.Add(e.createLabel(s.title,x,y));
+            y += 30;
+            studyAbroadTab.Controls.Add(e.createTextBox(s.description,x,y,400,100));
+            foreach(Place p in s.places)
+            {
+                y += 125;
+                studyAbroadTab.Controls.Add(e.createLabel(p.nameOfPlace,x,y));
+                y += 20;
+                studyAbroadTab.Controls.Add(e.createTextBox(p.description,x,y,400,100));
+            }
+        }
+
+        public void createAdvisingTab(StudentServices s)
+        {
+            int x = 50;
+            int y = 50;
+            advisingTab.Controls.Add(e.createLabel(s.title,x,y));
+            y += 30;
+            advisingTab.Controls.Add(e.createLabel(s.academicAdvisors.title,x,y));
+            y += 20;
+            advisingTab.Controls.Add(e.createTextBox(s.academicAdvisors.description, x, y, 400, 100));
+            x += 430;
+            y = 80;
+            advisingTab.Controls.Add(e.createLabel(s.facultyAdvisors.title,x,y));
+            y += 20;
+            advisingTab.Controls.Add(e.createTextBox(s.facultyAdvisors.description, x, y, 400, 100));
+            x = 50;
+            y += 130;
+            advisingTab.Controls.Add(e.createLabel(s.professonalAdvisors.title,x,y));
+            y += 20;
+            foreach(AdvisorInformation ai in s.professonalAdvisors.advisorInformation)
+            {
+                advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.name, x, y));
+                y += 15;
+                advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.department, x, y));
+                y += 15;
+                advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.department, x, y));
+                y += 30;
+            }
+            y = 230;
+            x += 430;
+            advisingTab.Controls.Add(e.createLabel(s.istMinorAdvising.title,x,y));
+            y += 20;
+            foreach (MinorAdvisorInformation ai in s.istMinorAdvising.minorAdvisorInformation)
+            {
+                advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.title,x,y));
+                y += 15;
+                advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.advisor, x, y));
+                y += 15;
+                advisingTab.Controls.Add(e.createLabel("   \u2022" + ai.email, x, y));
+                y += 30;
+            }
+
+        }
+        
+        public void createInfoTab(TutorsAndLabInformation info)
+        {
+            int x = 50;
+            int y = 50;
+            tutorTab.Controls.Add(e.createLabel(info.title, x, y));
+            y += 20;
+            tutorTab.Controls.Add(e.createTextBox(info.description, x, y, 400, 200));
+            y += 220;
+            Button button = e.createButton("Tutoring Hours", x, y);
+            button.AutoSize = true;
+            button.Click += (s, e) =>
+            {
+                System.Diagnostics.Process.Start(info.tutoringLabHoursLink);
+            };
+            tutorTab.Controls.Add(button);
+        }
+
+        public void createAmbassTab(StudentAmbassadors sa)
+        {
+            int x = 50;
+            int y = 50;
+            ambassTab.Controls.Add(e.createLabel(sa.title, x, y));
+            y += 30;
+            PictureBox pb = new PictureBox();
+            pb.Size = new Size(400, 225);
+            pb.Location = new Point(x,y);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.Load(sa.ambassadorsImageSource);
+            ambassTab.Controls.Add(pb);
+            y += 320;
+            foreach(SubSectionContent sc in sa.subSectionContent)
+            {
+                ambassTab.Controls.Add(e.createLabel(sc.title,x,y));
+                y += 20;
+                ambassTab.Controls.Add(e.createTextBox(sc.description, x, y, 400, 125));
+                y += 150;
+            }
+        }
+
+        public void createFormsTab(Forms f)
+        {
+            int x = 50;
+            int y = 50;
+            foreach(GraduateForm gf in f.graduateForms)
+            {
+                Button button = e.createButton(gf.formName, x, y);
+                button.AutoSize = true;
+                button.Click += (s, e) =>
+                {
+                    System.Diagnostics.Process.Start(gf.href);
+                };
+                formsTab.Controls.Add(button);
+                y += 30;
+            }
+            y += 30;
+            foreach (UndergraduateForm gf in f.undergraduateForms)
+            {
+                Button button = e.createButton(gf.formName, x, y);
+                button.AutoSize = true;
+                button.Click += (s, e) =>
+                {
+                    System.Diagnostics.Process.Start(gf.href);
+                };
+                formsTab.Controls.Add(button);
+            }
+
+        }
+
+        public void createCoopTab(CoopEnrollment CE)
+        {
+            int x = 50;
+            int y = 50;
+            coopTab.Controls.Add(e.createLabel(CE.title,x,y));
+            y += 30;
+            foreach (EnrollmentInformationContent EIC in CE.enrollmentInformationContent)
+            {
+                coopTab.Controls.Add(e.createLabel(EIC.title, x, y));
+                y += 20;
+                coopTab.Controls.Add(e.createTextBox(EIC.description, x, y, 400, 150));
+                if(x >= 450)
+                {
+                    x = 50;
+                    y += 180;
+                }
+                else
+                {
+                    x += 425;
+                    y -= 20;
+                }
+            }
+            Button button = e.createButton("Job Zone",50 , y+20);
+            button.AutoSize = true;
+            button.Click += (s, e) =>
+            {
+                System.Diagnostics.Process.Start(CE.RITJobZoneGuidelink);
+            };
+            coopTab.Controls.Add(button);
         }
     }
 }
