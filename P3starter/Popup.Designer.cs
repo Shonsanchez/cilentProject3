@@ -1,6 +1,6 @@
 ﻿namespace P3starter
 {
-    partial class Popup
+    partial class PopupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -42,8 +42,9 @@
             this.displayPanel.AutoSize = true;
             this.displayPanel.Controls.Add(this.contentPane);
             this.displayPanel.Location = new System.Drawing.Point(0, 0);
+            this.displayPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.displayPanel.Name = "displayPanel";
-            this.displayPanel.Size = new System.Drawing.Size(565, 412);
+            this.displayPanel.Size = new System.Drawing.Size(848, 634);
             this.displayPanel.TabIndex = 0;
             // 
             // contentPane
@@ -52,19 +53,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.contentPane.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.contentPane.Location = new System.Drawing.Point(1, 2);
+            this.contentPane.Location = new System.Drawing.Point(2, 3);
+            this.contentPane.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contentPane.Name = "contentPane";
-            this.contentPane.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.contentPane.Size = new System.Drawing.Size(524, 407);
+            this.contentPane.Padding = new System.Windows.Forms.Padding(0, 0, 0, 46);
+            this.contentPane.Size = new System.Drawing.Size(786, 626);
             this.contentPane.TabIndex = 0;
             // 
-            // Popup
+            // PopupForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 415);
+            this.ClientSize = new System.Drawing.Size(782, 638);
             this.Controls.Add(this.displayPanel);
-            this.Name = "Popup";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "PopupForm";
             this.Text = "Form3";
             this.displayPanel.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -10,10 +10,11 @@ using System.Windows.Forms;
 
 namespace P3starter
 {
-    public partial class Popup : Form
+    public partial class PopupForm : Form
     {
+
         Elements e = new Elements();
-        public Popup(String description)
+        public PopupForm(String description)
         {
             InitializeComponent();
             TextBox tb = e.createTextBox(description, 0, 0, 500, 400);
@@ -22,7 +23,7 @@ namespace P3starter
             contentPane.Controls.Add(tb);
         }
 
-        public Popup(List<String> citations)
+        public PopupForm(List<String> citations)
         {
             InitializeComponent();
             foreach (String cit in citations)
@@ -37,7 +38,7 @@ namespace P3starter
             }
         }
 
-        public Popup(Faculty f)
+        public PopupForm(Faculty f)
         {
             InitializeComponent();
             int x = 50;
@@ -58,7 +59,7 @@ namespace P3starter
             contentPane.Controls.Add(e.createLabel("Phone: " + f.phone, x, y));
         }
 
-        public Popup(Staff s)
+        public PopupForm(Staff s)
         {
             InitializeComponent();
             int x = 50;
