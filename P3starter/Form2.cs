@@ -38,6 +38,28 @@ namespace P3starter
             // Quoter's Name
             quoterlbl.Text = about.quoteAuthor;
 
+            // Get /about/ information from the API
+            string jsonFooter = istRest.getRESTData("/footer/");
+
+            //Console.WriteLine(jsonAbout);
+
+            // Need to get the data out of the JSON string into an object form
+            // that we can easily use
+            Footer footer = JToken.Parse(jsonFooter).ToObject<Footer>();
+
+            int x = 260;
+            int y = 400;
+            foreach(QuickLink ql in footer.quickLinks)
+            {
+                Button button = e.createButton(ql.title,x,y);
+                button.Click += (s, e) =>
+                {
+                    System.Diagnostics.Process.Start(ql.href);
+                };
+                aboutTab.Controls.Add(button);
+                x += 150;
+            }
+
 
             createAllTabs();
         }
